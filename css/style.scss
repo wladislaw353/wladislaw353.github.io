@@ -545,7 +545,7 @@ section.pwa {
         }
     }
     .btn {
-        background: #fcfcfc;
+        background: #fff4f0;
     }
     .fixed-section {
         padding: em(60) em(15);
@@ -554,8 +554,10 @@ section.pwa {
         position: fixed;
         left: 0;
         top: 0;
-        background: #fcfcfc;
+        background: #fff4f0;
         max-width: unset;
+        display: flex;
+        align-items: center;
         z-index: -1;
         @include _850 {
             padding: em(30) em(15);
@@ -574,27 +576,36 @@ section.pwa {
                 }
             }
         }
+        .info {
+            & > img {
+                max-width: em(300);
+            }
+            h3 {
+                font-size: em(30);
+                margin-bottom: em(20, 30);
+                @include _500 {
+                    font-size: em(25);
+                    margin-bottom: em(20, 25);
+                }
+                & + div {
+                    backdrop-filter: blur(10px);
+                    border-radius: 0 10px 10px 0;
+                    position: relative;
+                    z-index: 3;
+                    padding-top: em(10);
+                }
+            }
+            p {
+                max-width: em(800);
+                padding-bottom: em(10);
+            }
+        }
         .flex-container {
             gap: em(50);
-            .info {
-                h3 {
-                    font-size: em(30);
-                    margin-bottom: em(20, 30);
-                    @include _500 {
-                        font-size: em(25);
-                        margin-bottom: em(20, 25);
-                    }
-                    & + div {
-                        backdrop-filter: blur(10px);
-                        border-radius: 0 10px 10px 0;
-                        position: relative;
-                        z-index: 3;
-                        padding-top: em(10);
-                    }
-                }
-                p {
-                    max-width: em(800);
-                    padding-bottom: em(10);
+            img {
+                max-width: 40%;
+                @include _1024 {
+                    display: none;
                 }
             }
         }
