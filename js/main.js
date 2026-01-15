@@ -129,20 +129,26 @@ $(document).ready(()=> {const wwt=1;function is_home(){return($('body').hasClass
         pageHeight = document.documentElement.scrollHeight
     }
 
-    // portfolio fiter
+    // portfolio filter
     $('.filter button').click(function() {
-        const type = $(this).index()
+        const category = $(this).data('category')
         $('.filter button').removeClass('active')
         $(this).addClass('active')
         const $section = document.querySelector('section.portfolio')
         window.scrollTo({
             top: pageYOffset - $section.scrollTop + 1
         })
-        if (type > 0) {
-            $(`[data-type]`).hide()
-            $(`[data-type="${type}"]`).show()
-        } else {
+        // Show/hide category descriptions
+        $('.category-description').hide()
+        if (category !== 'all') {
+            $(`.category-description[data-for="${category}"]`).show()
+        }
+        // Show/hide project items
+        if (category === 'all') {
             $(`[data-type]`).show()
+        } else {
+            $(`[data-type]`).hide()
+            $(`[data-type="${category}"]`).show()
         }
         refreshData()
     })

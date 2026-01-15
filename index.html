@@ -188,50 +188,244 @@
             <div class="holder">
                 <h2>Some of my projects</h2>
                 <div class="filter">
-                    <button class="active">All projects</button>
-                    <button>Corporate websites</button>
-                    <button>Landing pages</button>
-                    <button>Online stores</button>
-                    <button>Platforms</button>
+                    <button class="active" data-category="all">All projects</button>
+                    <button data-category="wordpress">WordPress</button>
+                    <button data-category="plugins">My Plugins</button>
+                    <button data-category="laravel">Laravel / PHP</button>
+                    <button data-category="webapps">Web Apps</button>
                 </div>
+
+                <p class="category-description" data-for="wordpress" style="display:none;">I'll show just a few cases out of hundreds that I find technically interesting.</p>
+                <p class="category-description" data-for="plugins" style="display:none;">For WP all plugins I created for myself, automating work and improving UX for clients.</p>
+                <p class="category-description" data-for="laravel" style="display:none;">Several of my projects built with Laravel and PHP frameworks.</p>
+                <p class="category-description" data-for="webapps" style="display:none;">I worked on Next.js applications in a team. My fully self-built application is written in Svelte.</p>
+
                 <div class="grid-container">
-                    <div class="item wow fadeInUp" data-wow-delay="" data-type="1">
-                        <img src="img/lofthookah.jpg" alt="">
+                    <!-- WordPress Projects -->
+                    <div class="item wow fadeInUp" data-wow-delay="" data-type="wordpress">
+                        <img src="img/mateitravel.jpg" alt="">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
                             <div>
-                                <strong>Loft Hookah</strong>
-                                <button data-modalq-opener="0" data-url="https://loft-hookah.wonder-web.com.ua/"><i class="fa-solid fa-eye"></i></button>
+                                <strong>MateiTravel</strong>
+                                <button data-modalq-opener="0" data-url="https://mateitravel.com/"><i class="fa-solid fa-eye"></i></button>
                             </div>
-                            <div class="tag">Corporate website</div>
-                            <p>Corporate website for hookah delivery company</p>
-                            <span>#html #css #js #wordpress</span>
+                            <div class="tag">USA</div>
+                            <ul>
+                                <li>Website for a travel company</li>
+                                <li>Categories and tours via custom post types (no WooCommerce)</li>
+                                <li>Tour scheduling and booking system</li>
+                                <li>Promo code system</li>
+                                <li>Stripe payment integration</li>
+                                <li>PDF ticket generation with QR verification</li>
+                                <li>Telegram bot for booking management</li>
+                                <li>VPS setup with self-hosted Umami analytics</li>
+                            </ul>
+                            <span>#wordpress #polylang #stripe #php</span>
                         </div>
                     </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-type="2">
-                        <img src="img/welovekids.jpg" alt="Image temporarily unavailable">
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="wordpress">
+                        <img src="img/welovekids.jpg" alt="">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
                             <div>
                                 <strong>WeLoveKids</strong>
                                 <button data-modalq-opener="0" data-url="https://welovekids.wonder-web.com.ua/"><i class="fa-solid fa-eye"></i></button>
                             </div>
-                            <div class="tag">Landing</div>
-                            <p>Landing page for kindergarden</p>
-                            <span>#html #css #js</span>
+                            <div class="tag">Ukraine</div>
+                            <ul>
+                                <li>Beautiful landing page for kindergarten</li>
+                                <li>Scroll and cursor-based animations</li>
+                                <li>HTML/CSS markup and WordPress integration</li>
+                            </ul>
+                            <span>#html #css #js #wordpress</span>
                         </div>
                     </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="4">
-                        <img src="img/frontpoint.jpg" alt="Image temporarily unavailable">
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-type="wordpress">
+                        <img src="img/lofthookah.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>LoftHookah</strong>
+                                <button data-modalq-opener="0" data-url="https://loft-hookah.wonder-web.com.ua/"><i class="fa-solid fa-eye"></i></button>
+                            </div>
+                            <div class="tag">Ukraine</div>
+                            <ul>
+                                <li>Presentation website with multilingual support</li>
+                                <li>HTML/CSS markup and WordPress integration</li>
+                                <li>Flavor and delivery cost calculator</li>
+                            </ul>
+                            <span>#wordpress #acf #multilang</span>
+                        </div>
+                    </div>
+
+                    <!-- My Plugins -->
+                    <div class="item wow fadeInUp" data-wow-delay="" data-type="plugins">
+                        <img src="img/plugin-polylang.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>Polylang String Scanner</strong>
+                            </div>
+                            <div class="tag">WordPress Plugin</div>
+                            <ul>
+                                <li>Automatically scans pll__() functions in code</li>
+                                <li>Adds translations to admin Translations section</li>
+                            </ul>
+                            <span>#wordpress #php #polylang</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="plugins">
+                        <img src="img/plugin-deepl.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>DeepL Translation</strong>
+                            </div>
+                            <div class="tag">WordPress Plugin</div>
+                            <ul>
+                                <li>Auto-translates pages, posts, taxonomies via DeepL</li>
+                                <li>No need to manually create page duplicates</li>
+                            </ul>
+                            <span>#wordpress #php #deepl #api</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-type="plugins">
+                        <img src="img/plugin-smmix.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>SEO Blog by SMMIX.tools</strong>
+                            </div>
+                            <div class="tag">WordPress Plugin</div>
+                            <ul>
+                                <li>Integration with my AI system for autonomous SEO blog</li>
+                                <li>Compatible with WPML, Polylang, WP Multilang</li>
+                                <li>Compatible with YoastSEO, AllInOneSEO, RankMathSEO</li>
+                            </ul>
+                            <span>#wordpress #php #ai #seo</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".3s" data-type="plugins">
+                        <img src="img/plugin-currency.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>Automatic Currency Update</strong>
+                                <a href="https://opencartforum.com/en/files/file/8975-avtomaticheskoe-obnovlenie-kursa-valyut-opencartocstore-2x-3h" target="_blank" rel="nofollow noindex"><i class="fa-solid fa-link"></i></a>
+                            </div>
+                            <div class="tag">Opencart Plugin</div>
+                            <ul>
+                                <li>Commercial plugin listed on marketplaces</li>
+                                <li>Most feature-rich solution on the market</li>
+                                <li>Multiple rate sources, markup function</li>
+                                <li>Cryptocurrency support</li>
+                            </ul>
+                            <span>#opencart #php #api</span>
+                        </div>
+                    </div>
+
+                    <!-- Laravel / PHP Projects -->
+                    <div class="item wow fadeInUp" data-wow-delay="" data-type="laravel">
+                        <img src="img/smmix.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>SMMIX</strong>
+                                <button data-modalq-opener="0" data-url="https://smmix.tools/"><i class="fa-solid fa-eye"></i></button>
+                            </div>
+                            <div class="tag">Czech Republic</div>
+                            <ul>
+                                <li>My startup (see below)</li>
+                                <li>Business requirements, monetization model</li>
+                                <li>Design creation</li>
+                                <li>Laravel implementation</li>
+                                <li>Stripe subscriptions management</li>
+                                <li>Deep integration of AI models (OpenAI, Anthropic, Google)</li>
+                                <li>VPS setup with self-hosted Umami analytics</li>
+                            </ul>
+                            <span>#laravel #stripe #ai #openai</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="laravel">
+                        <img src="img/frontpoint.jpg" alt="">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
                             <div>
                                 <strong>FrontPoint</strong>
                                 <button data-modalq-opener="0" data-url="https://frontpoint.uk.com/"><i class="fa-solid fa-eye"></i></button>
                             </div>
-                            <div class="tag">Platform</div>
-                            <p>Platform for the sale of courses and training</p>
-                            <span>#html #css #js</span>
+                            <div class="tag">United Kingdom</div>
+                            <ul>
+                                <li>Learning management system for sailors</li>
+                                <li>Users with different roles</li>
+                                <li>Courses, lessons, testing</li>
+                                <li>Certificate generation and verification</li>
+                                <li>Custom admin panel</li>
+                            </ul>
+                            <span>#laravel #php #mysql</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-type="laravel">
+                        <img src="img/mateipartner.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>MateiTravel Partner</strong>
+                                <button data-modalq-opener="0" data-url="https://partner.mateitravel.com/"><i class="fa-solid fa-eye"></i></button>
+                            </div>
+                            <div class="tag">USA</div>
+                            <ul>
+                                <li>Partner system with user registration</li>
+                                <li>Two-way integration with main website</li>
+                                <li>Schedules and promo codes sync</li>
+                                <li>Landing page and design development</li>
+                                <li>Referral system</li>
+                            </ul>
+                            <span>#php #mysql #api</span>
+                        </div>
+                    </div>
+
+                    <!-- Web Apps -->
+                    <div class="item wow fadeInUp" data-wow-delay="" data-type="webapps">
+                        <img src="img/getyourguide.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>GetYourGuide Analogue</strong>
+                            </div>
+                            <div class="tag">Web App</div>
+                            <ul>
+                                <li>Large-scale project similar to GetYourGuide</li>
+                                <li>50+ dashboard pages</li>
+                                <li>200+ knowledge base pages</li>
+                                <li>Business requirements and design work</li>
+                                <li>Frontend: Svelte + SvelteKit</li>
+                                <li>Backend: Deno</li>
+                                <li>Fuzzy search with lemmatization via Manticore</li>
+                            </ul>
+                            <span>#svelte #sveltekit #deno #manticore</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="webapps">
+                        <img src="img/hurricane.jpg" alt="">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>Hurricane</strong>
+                            </div>
+                            <div class="tag">Web App + Mobile</div>
+                            <ul>
+                                <li>WordPress website + Svelte dashboard</li>
+                                <li>WordPress API for product categories</li>
+                                <li>PHP API for the application</li>
+                                <li>Monobank payment integration</li>
+                                <li>Google authorization</li>
+                                <li>Cashback system, product bundles</li>
+                                <li>Shadcn UI library</li>
+                                <li>Built for AppStore/GooglePlay via Capacitor</li>
+                            </ul>
+                            <span>#svelte #capacitor #php #shadcn</span>
                         </div>
                     </div>
                 </div>

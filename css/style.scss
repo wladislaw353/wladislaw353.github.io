@@ -399,7 +399,7 @@ section.portfolio {
     position: relative;
     z-index: 3;
     .filter {
-        margin-bottom: em(30);
+        margin-bottom: em(15);
         display: flex;
         gap: em(15);
         flex-wrap: wrap;
@@ -416,6 +416,12 @@ section.portfolio {
                 background: #fff;
             }
         }
+    }
+    .category-description {
+        color: #ee61c7;
+        font-size: em(16);
+        margin: em(20) 0 em(30);
+        font-style: italic;
     }
     .grid-container {
         grid-template-columns: repeat(3, 1fr);
@@ -491,6 +497,15 @@ section.portfolio {
                 p {
                     color: #9594a1;
                     max-width: em(280);
+                }
+                ul {
+                    color: #9594a1;
+                    font-size: em(14);
+                    padding-left: em(18, 14);
+                    margin: 0;
+                    li {
+                        margin-bottom: em(4, 14);
+                    }
                 }
                 span {
                     color: #03a9f4;
