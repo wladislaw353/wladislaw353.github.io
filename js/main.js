@@ -3,12 +3,13 @@
 const CONFIG={desktop:{defaultFont:18,defaultWidth:1200,minWidth:1024,used:!0},tablet:{defaultFont:16,defaultWidth:767,minWidth:640,used:!0},mobile:{defaultFont:20,defaultWidth:500,minWidth:320,used:!0}};function size(){const a=Math.max(CONFIG[device].minWidth,windowW)/CONFIG[device].defaultWidth,b=CONFIG[device].used&&windowW<CONFIG.desktop.defaultWidth?a:1;return CONFIG[device].defaultFont*b}let windowW="",windowH="",device="";function reloadWindowSize(){windowW=window.innerWidth,windowH=window.innerHeight,device=windowW<CONFIG.mobile.defaultWidth?"mobile":windowW<CONFIG.tablet.defaultWidth?"tablet":"desktop",document.documentElement.style.setProperty("font-size",`${size()}px`),document.documentElement.style.setProperty("--vh",`${windowH}px`)}reloadWindowSize(),window.addEventListener("resize",reloadWindowSize)
 $(document).ready(()=> {const wwt=1;function is_home(){return($('body').hasClass('home')||$('body').hasClass('common-home')||window.location.href=='/'||window.location.href=='/ua/'||window.location.href=='/en/'||window.location.href=='/ru/')};const wstyle=["padding: 5px;","font-size: 13px;","font-weight: bold;","color: #00b5ee;"].join(""),wname="😄𝕙𝕖𝕝𝕝𝕠";if(wwt)console.log("%c%s",wstyle,wname);const get_params=window.location.search.replace("?","").split("&").reduce(function(b,c){const d=c.split("=");return b[decodeURIComponent(d[0])]=decodeURIComponent(d[1]),b},{}); const utm = { 'utm_source': get_params['utm_source'] ? get_params['utm_source'] : '', 'utm_medium': get_params['utm_medium'] ? get_params['utm_medium'] : '', 'utm_campaign': get_params['utm_campaign'] ? get_params['utm_campaign'] : '', 'utm_content': get_params['utm_content'] ? get_params['utm_content'] : '', 'utm_term': get_params['utm_term'] ? get_params['utm_term'] : '' }; const is_iOS = () => { const userAgent = window.navigator.userAgent.toLowerCase(); return /iphone|ipad|ipod/.test(userAgent)};$('[href="#"]').removeAttr('href')
 
+    const wow = new WOW()
     if ($('.preloader')) {
         $('.preloader').addClass('active')
         $('.preloader').fadeOut()
-        new WOW().init()
+        wow.init()
     } else {
-        new WOW().init()
+        wow.init()
     }
 
     new TypeIt('.typeit', {
@@ -61,29 +62,12 @@ $(document).ready(()=> {const wwt=1;function is_home(){return($('body').hasClass
             }
         }
 
-        // hide header, when pwa section is visible
-        const waveOffset = scrolled - $('.waves-wrapper:nth-child(1)').offset().top
-        if (waveOffset > -80) {
-            $('header').css('transform', 'translateY(-100px)')
-        } else {
-            $('header').css('transform', 'none')
-        }
-
-        // make pwa section visible
-        if (scrolled > viewport * 2) {
-            $('section.pwa').css({
-                'opacity': '1',
-                'visibility': 'visible'
-            })
-        } else {
-            $('section.pwa').css({
-                'opacity': '0',
-                'visibility': 'hidden'
-            })
-        }
+        // hide header over the light creative zone
+        const craftRect = document.querySelector('section.craft').getBoundingClientRect()
+        $('header').css('transform', craftRect.top < 60 && craftRect.bottom > 80 ? 'translateY(-100px)' : 'none')
 
         // creative section
-        const $fixedImg             = $('section.creative .fixed-img')
+        const $fixedImg            = $('section.creative .fixed-img')
         const $creativeTitle        = $('section.creative .fixed-img h2')
         const $creativeBg           = $('section.creative .fixed-img > .bg')
         const $creativeIframe       = $('section.creative .iframe-wrapper')
@@ -129,28 +113,52 @@ $(document).ready(()=> {const wwt=1;function is_home(){return($('body').hasClass
         pageHeight = document.documentElement.scrollHeight
     }
 
+    // portfolio masonry: a card spans as many 1px grid rows as it is tall
+    const projectGrid = document.querySelector('.portfolio .grid-container')
+    const projectCards = [...projectGrid.querySelectorAll('[data-project]')]
+    const fitCard = card => {
+        if (card.offsetParent === null) return
+        const span = Math.ceil(card.offsetHeight + parseFloat(getComputedStyle(card).marginBottom))
+        card.style.gridRowEnd = `span ${span}`
+    }
+    const cardObserver = new ResizeObserver(entries => entries.forEach(entry => fitCard(entry.target)))
+    projectCards.forEach(card => {
+        card.style.viewTransitionName = `project-${card.dataset.project}`
+        cardObserver.observe(card)
+    })
+    projectGrid.classList.add('masonry')
+    projectCards.forEach(fitCard)
+
     // portfolio filter
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let cardsRevealed = false
     $('.filter button').click(function() {
         const category = $(this).data('category')
-        $('.filter button').removeClass('active')
-        $(this).addClass('active')
-        const $section = document.querySelector('section.portfolio')
-        window.scrollTo({
-            top: pageYOffset - $section.scrollTop + 1
-        })
-        // Show/hide category descriptions
-        $('.category-description').hide()
-        if (category !== 'all') {
-            $(`.category-description[data-for="${category}"]`).show()
+        const order = String($(this).data('order') || '').split(' ').filter(Boolean)
+        $('.filter button').removeClass('active').attr('aria-pressed', 'false')
+        $(this).addClass('active').attr('aria-pressed', 'true')
+        if (!cardsRevealed) {
+            cardsRevealed = true
+            wow.boxes = (wow.boxes || []).filter(box => !projectCards.includes(box))
+            projectCards.forEach(card => $(card).css({ visibility: 'visible', 'animation-name': 'none' }))
         }
-        // Show/hide project items
-        if (category === 'all') {
-            $(`[data-type]`).show()
+        const applyFilter = () => {
+            $('.category-description').hide()
+            if (category !== 'all') {
+                $(`.category-description[data-for="${category}"]`).show()
+            }
+            projectCards.forEach(card => {
+                const position = order.indexOf(card.dataset.project)
+                $(card).toggle(category === 'all' || position !== -1).css('order', category === 'all' ? '' : position)
+            })
+            projectCards.forEach(fitCard)
+            refreshData()
+        }
+        if (document.startViewTransition && !reduceMotion.matches) {
+            document.startViewTransition(applyFilter)
         } else {
-            $(`[data-type]`).hide()
-            $(`[data-type="${category}"]`).show()
+            applyFilter()
         }
-        refreshData()
     })
 
 
@@ -158,7 +166,8 @@ $(document).ready(()=> {const wwt=1;function is_home(){return($('body').hasClass
     $('[data-modalq-opener]').click(function() {
         const modal_id = $(this).data('modalq-opener')
         const modal_url = $(this).data('url')
-        const modal_title = $(this).parent().find('strong').text()
+        const $title = $(this).parent().find('strong')
+        const modal_title = $title.text().trim() || $title.find('img').attr('alt')
         modalqOpen(modal_id, modal_url, modal_title)
         
     })
@@ -193,6 +202,132 @@ $(document).ready(()=> {const wwt=1;function is_home(){return($('body').hasClass
     $(document).mouseup(e => {
         if ($('.modalq-wrapper').is(':visible') && $('.modalq-wrapper').has(e.target).length === 0) modalqClose()
     })
+
+
+    // GUIDRA LOGO
+    function guidraMerge(root) {
+        const svgNS = 'http://www.w3.org/2000/svg'
+        const mark = root.querySelector('.merge-mark')
+        const hydra = { l: root.querySelector('.mm-l'), t: root.querySelector('.mm-t'), r: root.querySelector('.mm-r') }
+        const arrow = root.querySelector('.mm-arrow')
+        const ring = root.querySelector('.mm-ring')
+        const trail = root.querySelector('.mm-trail')
+        const word = root.querySelector('.merge-word')
+        const [gui, de, plus, hy, dra] = ['gui', 'de', 'plus', 'hy', 'dra'].map(part => word.querySelector(`.mw-${part}`))
+        const AX = 275, AY = 172, HX = 266.5, HY = 206, DOTS = 13
+        const clamp01 = value => Math.min(1, Math.max(0, value))
+        const smooth = value => value * value * (3 - 2 * value)
+        const dots = Array.from({ length: DOTS }, () => {
+            const dot = document.createElementNS(svgNS, 'circle')
+            dot.setAttribute('r', 4.5)
+            dot.style.opacity = 0
+            trail.append(dot)
+            return dot
+        })
+        let m = null
+        let progress = 0
+        const bezier = a => {
+            const v = 1 - a
+            return [v * v * m.sx + 2 * v * a * m.qx + a * a * AX, v * v * m.sy + 2 * v * a * m.qy + a * a * AY]
+        }
+        const paint = a => {
+            progress = a
+            if (!m) return
+            const [ax, ay] = bezier(a)
+            const arrowScale = m.big - (m.big - 1) * a
+            arrow.setAttribute('transform', `translate(${ax.toFixed(2)} ${ay.toFixed(2)}) scale(${arrowScale.toFixed(3)}) translate(${-AX} ${-AY})`)
+            const hydraScale = 0.62 + 0.38 * a
+            const hydraX = m.hx + (HX - m.hx) * a
+            const body = `translate(${hydraX.toFixed(2)} ${HY}) scale(${hydraScale.toFixed(3)}) translate(${-HX} ${-HY})`
+            hydra.t.setAttribute('transform', body)
+            hydra.l.setAttribute('transform', `${body} rotate(${((1 - a) * 9).toFixed(2)} 171 91)`)
+            hydra.r.setAttribute('transform', `${body} rotate(${((a - 1) * 9).toFixed(2)} 352 205)`)
+            dots.forEach((dot, i) => { dot.style.opacity = a > (i + 1) / (DOTS + 2) && a < 0.96 ? 0.85 : 0 })
+            gui.style.transform = de.style.transform = `translateX(${(m.dGui * a).toFixed(2)}px)`
+            dra.style.transform = hy.style.transform = `translateX(${(m.dDra * a).toFixed(2)}px)`
+            de.style.opacity = hy.style.opacity = (1 - clamp01(a * 1.9)).toFixed(3)
+            plus.style.opacity = (0.65 * (1 - clamp01(a * 3.2))).toFixed(3)
+        }
+        // Driven from the frame loop: a CSS animation here would bubble animationend into WOW.js,
+        // which calls className.replace on the SVG target and throws
+        const pulse = elapsed => {
+            const k = clamp01(elapsed / 800)
+            const eased = 1 - Math.pow(1 - k, 3)
+            ring.style.opacity = elapsed < 0 || k >= 1 ? 0 : (0.9 * (1 - eased)).toFixed(3)
+            ring.setAttribute('transform', `translate(${AX} ${AY}) scale(${(0.4 + 2.1 * eased).toFixed(3)}) translate(${-AX} ${-AY})`)
+        }
+        const measure = () => {
+            const W = word.clientWidth
+            const k = mark.clientWidth / 533
+            if (!W || !k) return
+            const final = (W - gui.offsetWidth - dra.offsetWidth) / 2
+            m = {
+                dGui: final - gui.offsetLeft,
+                dDra: final + gui.offsetWidth - dra.offsetLeft,
+                hx: HX + ((hy.offsetLeft + dra.offsetLeft + dra.offsetWidth) / 2 - W / 2) / k,
+                sx: HX + ((gui.offsetLeft + de.offsetLeft + de.offsetWidth) / 2 - W / 2) / k,
+                sy: HY + 48,
+                big: W < 520 ? 2 : 3,
+            }
+            m.qx = (m.sx + AX) / 2 + 10
+            m.qy = Math.min(m.sy, AY) - 150
+            dots.forEach((dot, i) => {
+                const [x, y] = bezier((i + 1) / (DOTS + 2))
+                dot.setAttribute('cx', x.toFixed(1))
+                dot.setAttribute('cy', y.toFixed(1))
+            })
+            paint(progress)
+        }
+        new ResizeObserver(measure).observe(root)
+        if (document.fonts) document.fonts.ready.then(measure)
+        measure()
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            paint(1)
+            return
+        }
+        const WAIT = 700, BUILD = 2600, HOLD = 3000, FADE = 400
+        const LOOP = WAIT + BUILD + HOLD + FADE * 2
+        let frame = null
+        let startedAt = 0
+        const tick = now => {
+            const t = (now - startedAt) % LOOP
+            let a = 0
+            let opacity = 1
+            if (t < WAIT) a = 0
+            else if (t < WAIT + BUILD) a = smooth((t - WAIT) / BUILD)
+            else if (t < WAIT + BUILD + HOLD) a = 1
+            else if (t < WAIT + BUILD + HOLD + FADE) {
+                a = 1
+                opacity = 1 - (t - WAIT - BUILD - HOLD) / FADE
+            } else opacity = (t - WAIT - BUILD - HOLD - FADE) / FADE
+            mark.style.opacity = word.style.opacity = opacity.toFixed(3)
+            paint(a)
+            pulse(t - WAIT - BUILD)
+            frame = requestAnimationFrame(tick)
+        }
+        new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting && !frame) {
+                startedAt = performance.now() - LOOP + FADE
+                frame = requestAnimationFrame(tick)
+            } else if (!entry.isIntersecting && frame) {
+                cancelAnimationFrame(frame)
+                frame = null
+            }
+        }, { threshold: 0.35 }).observe(root)
+    }
+    document.querySelectorAll('.guidra-merge').forEach(guidraMerge)
+
+    const loopVideos = document.querySelectorAll('.loop-video')
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        loopVideos.forEach(video => video.setAttribute('controls', ''))
+    } else {
+        const videoObserver = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+            if (isIntersecting) target.play().catch(error => { if (error.name === 'NotAllowedError') target.setAttribute('controls', '') })
+            else target.pause()
+        }), { threshold: 0.4 })
+        loopVideos.forEach(video => videoObserver.observe(video))
+    }
 
 
     // BURGER

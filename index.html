@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="icon" type="image/x-icon" href="img/favicon.png">
-	<link rel="stylesheet" href="css/style.min.css?v1">
+	<link rel="stylesheet" href="css/style.min.css?v6">
     <meta name="theme-color" content="#14152a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;500;700&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/bb399fbda1.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <meta name="description" content="Hi! Are you looking for a professional developer to create a website for your business? Contact me now, don't waste your time!">
     <title>Vladyslav Prokop | Full-stack Web Developer</title>
     <meta property="og:title" content="Vladyslav Prokop | Full-stack Web Developer">
@@ -104,16 +104,14 @@
             </div>
         </section>
 
-        <section class="mooving-cases">
-            <img src="img/carpower.jpg" alt="">
-            <img src="img/sklo.jpg" alt="">
-            <img src="img/amservice.jpg" alt="">
-            <img src="img/lofthookah.jpg" alt="">
-            <img src="img/wondergifts.jpg" alt="">
-            <img src="img/mida.jpg" alt="">
-            <img src="img/oldfashion.jpg" alt="">
-            <img src="img/ack.jpg" alt="">
-            <img src="img/uniss.jpg" alt="">
+        <section class="mooving-cases" aria-label="Interfaces from recent projects">
+            <img src="img/strip-guidra-app.webp" alt="Guidra mobile app: booking card and dashboard" width="940" height="540">
+            <img src="img/strip-seshat-report.webp" alt="SESHAT runs an SEO audit in Claude and returns a PDF report" width="940" height="540">
+            <img src="img/strip-matei-booking.webp" alt="MateiTravel tour page, promo code and QR e-ticket" width="940" height="540">
+            <img src="img/strip-otherwiser-panel.webp" alt="Otherwiser hosting control panel with automatic site setup" width="940" height="540">
+            <img src="img/strip-blogent-search.webp" alt="Blogent article ranking in Google and cited by ChatGPT" width="940" height="540">
+            <img src="img/strip-guidra-live.webp" alt="Guidra pickup ETA in the Dynamic Island" width="940" height="540">
+            <img src="img/strip-matei-growth.webp" alt="MateiTravel growth in Google Search Console and AI referrals" width="940" height="540">
         </section>
 
         <section class="skills" id="skills">
@@ -136,22 +134,22 @@
                         </p>
                         <p class="wow fadeInUp">
                             <strong><i class="fa-brands fa-wordpress"></i> CMS</strong>
-                            <span>WordPress, <s>Opencart (ocStore)</s> <br> Custom themes and plugins</span>
+                            <span>WordPress, PrestaShop, Opencart <br> Custom themes and plugins</span>
                         </p>
                         <p class="wow fadeInUp">
                             <strong><i class="fa-brands fa-git-alt"></i> GIT</strong>
                             <span>GitLab/BitBucket/GitHub, CI/CD</span>
                         </p>
                         <p class="wow fadeInUp">
-                            <strong><i class="fa-brands fa-openai"></i> LLM / AI</strong>
-                            <span>API integrations for business automation</span>
+                            <strong><i class="fa-solid fa-robot"></i> LLM / AI</strong>
+                            <span>Codex, Claude Code: agentic dev workflow<br>RAG + Manticore, S2S agents, MCP servers<br>OpenAI, Anthropic, Gemini APIs in production</span>
                         </p>
                     </div>
                     <div class="item">
                         <h3>Additionally</h3>
                         <p class="wow fadeInUp">
                             <strong><i class="fa-brands fa-figma"></i> Design tools</strong>
-                            <span>Figma, Photoshop, Stich</span>
+                            <span>Figma, Photoshop</span>
                         </p>
                         <p class="wow fadeInUp">
                             <strong><i class="fa-solid fa-laptop-code"></i> DevOps Basics</strong>
@@ -159,7 +157,7 @@
                         </p>
                         <p class="wow fadeInUp">
                             <strong><i class="fa-solid fa-magnifying-glass-chart"></i> Product-minded</strong>
-                            <span>Good knowledge in SEO, UX and marketing</span>
+                            <span>Good knowledge in SEO, UX and marketing<br>GA4, Umami, Meta</span>
                         </p>
                         <p class="wow fadeInUp">
                             <strong><i class="fa-brands fa-docker"></i> Docker</strong>
@@ -186,108 +184,174 @@
         <section class="portfolio" id="portfolio">
             <div class="holder">
                 <h2>Some of my projects</h2>
-                <div class="filter">
-                    <button class="active" data-category="all">All projects</button>
-                    <button data-category="laravel">Laravel / PHP</button>
-                    <button data-category="webapps">Web Apps</button>
-                    <button data-category="wordpress">WordPress</button>
-                    <button data-category="plugins">My Plugins</button>
+                <div class="filter" role="group" aria-label="Filter projects">
+                    <button class="active" aria-pressed="true" data-category="all">All projects</button>
+                    <button aria-pressed="false" data-category="websites" data-order="blogent frontpoint seshat matei-travel otherwiser alejmun guidra hurricane umandry">Websites</button>
+                    <button aria-pressed="false" data-category="apps" data-order="guidra hurricane umandry">Apps</button>
+                    <button aria-pressed="false" data-category="plugins" data-order="blogent-connector polylang-scanner deepl-translation currency-update ps-xml-import ps-product-association">Plugins</button>
                 </div>
 
-                <p class="category-description" data-for="wordpress" style="display:none;">I'll show just a few cases out of hundreds that I find technically interesting.</p>
-                <p class="category-description" data-for="plugins" style="display:none;">For WP all plugins I created for myself, automating work and improving UX for clients.</p>
-                <p class="category-description" data-for="laravel" style="display:none;">Several of my projects built with Laravel and PHP frameworks.</p>
-                <p class="category-description" data-for="webapps" style="display:none;">I worked on Next.js applications in a team. My fully self-built application is written in Svelte.</p>
+                <p class="category-description" data-for="websites" style="display:none;">Products and websites I built end to end: from an AI SaaS to booking systems and portals.</p>
+                <p class="category-description" data-for="apps" style="display:none;">One SvelteKit codebase shipped to the web, iOS and Android with Capacitor, plus native widgets and Live Activities.</p>
+                <p class="category-description" data-for="plugins" style="display:none;">Extensions I wrote to automate routine work for WordPress, OpenCart and PrestaShop.</p>
 
                 <div class="grid-container">
-                    <!-- Laravel / PHP Projects -->
-                    <div class="item wow fadeInUp" data-wow-delay="" data-type="laravel">
-                        <img src="img/smmix.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay="" data-project="blogent">
+                        <img src="img/blogent.webp" alt="Blogent AI landing page" width="1410" height="810" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>SMMIX</strong>
-                                <button data-modalq-opener="0" data-url="https://smmix.tools/"><i class="fa-solid fa-eye"></i></button>
+                            <div class="brand">
+                                <strong class="logo"><img src="img/logo-blogent.svg" alt="Blogent AI"></strong>
+                                <button data-modalq-opener="0" data-url="https://blogent.tools/" aria-label="Preview blogent.tools"><i class="fa-solid fa-eye"></i></button>
                             </div>
-                            <div class="tag">SAAS - AI Platform</div>
+                            <div class="tag">SaaS · AI platform</div>
                             <ul>
-                                <li>My startup (see below)</li>
-                                <li>Business requirements, monetization model</li>
-                                <li>Design creation</li>
-                                <li>Laravel implementation</li>
-                                <li>Stripe subscriptions management</li>
-                                <li>Deep integration of AI models (OpenAI, Anthropic, Google)</li>
-                                <li>VPS setup with self-hosted Umami analytics</li>
+                                <li>My startup, formerly SMMIX: an SEO blog on autopilot</li>
+                                <li>Learns the business, plans topics, writes and updates posts</li>
+                                <li>Research, writing and review pipeline with cited sources</li>
+                                <li>OpenAI for research and writing, Claude for review</li>
+                                <li>Publishes to WordPress, Shopify, Webflow, OpenCart, Strapi</li>
+                                <li>Multilingual posts, AI or real product images</li>
+                                <li>Stripe subscriptions, Search Console and SE Ranking data</li>
+                                <li>Rebuilt from Laravel to SvelteKit</li>
                             </ul>
-                            <span>#laravel #stripe #ai #openai</span>
+                            <span>#sveltekit #svelte5 #mariadb #stripe #openai #claude</span>
                         </div>
                     </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="laravel">
-                        <img src="img/frontpoint.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-project="guidra">
+                        <img src="img/guidra.webp" alt="Guidra landing page: booking channels merging into one calendar" width="1410" height="810" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>FrontPoint</strong>
-                                <button data-modalq-opener="0" data-url="https://frontpoint.uk.com/"><i class="fa-solid fa-eye"></i></button>
+                            <div class="brand">
+                                <strong class="logo"><img src="img/logo-guidra.svg" alt="Guidra"></strong>
+                                <button data-modalq-opener="0" data-url="https://crm.mateitravel.com/" aria-label="Preview Guidra"><i class="fa-solid fa-eye"></i></button>
                             </div>
-                            <div class="tag">Study Platform</div>
+                            <div class="tag">Booking CRM · iOS &amp; Android</div>
                             <ul>
-                                <li>Learning management system for sailors</li>
-                                <li>Users with different roles</li>
-                                <li>Courses, lessons, testing</li>
-                                <li>Certificate generation and verification</li>
-                                <li>Custom admin panel</li>
+                                <li>Booking CRM for tour operators and travel agencies</li>
+                                <li>One seat pool for the website, GetYourGuide, Viator and phone</li>
+                                <li>GetYourGuide Supplier API integration in production</li>
+                                <li>Departures, calendar and kanban, guide and vehicle conflicts</li>
+                                <li>Live GPS pickup tracking with route optimization and guest ETA link</li>
+                                <li>Capacitor apps: background GPS, Live Activities, widgets</li>
+                                <li>Brand and logo design (see the creative zone below)</li>
                             </ul>
-                            <span>#laravel #php #mysql</span>
+                            <span>#sveltekit #typescript #mysql #mapbox #capacitor</span>
                         </div>
                     </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-type="laravel">
-                        <img src="img/mateipartner.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-project="seshat">
+                        <img src="img/seshat.webp" alt="Seshat AI landing page" width="1410" height="810" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>MateiTravel Partner</strong>
-                                <button data-modalq-opener="0" data-url="https://partner.mateitravel.com/"><i class="fa-solid fa-eye"></i></button>
+                            <div class="brand">
+                                <strong class="logo logo-seshat"><img src="img/logo-seshat.svg" alt=""><b>SESHAT</b></strong>
+                                <a class="external" href="https://seshat.otherwise.solutions/" target="_blank" rel="noopener" aria-label="Open seshat.otherwise.solutions"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
-                            <div class="tag">Partner system for Travel company</div>
+                            <div class="tag">AI ERP · MCP server</div>
                             <ul>
-                                <li>Partner system with user registration</li>
-                                <li>Two-way integration with main website</li>
-                                <li>Schedules and promo codes sync</li>
-                                <li>Landing page and design development</li>
-                                <li>Referral system</li>
+                                <li>ERP for agencies that works inside Claude, Telegram and Slack</li>
+                                <li>Remote MCP server for Claude, ChatGPT, Cursor and Codex</li>
+                                <li>Runs SEO audits with Lighthouse data and sends branded PDF reports</li>
+                                <li>Generates invoices and completion certificates</li>
+                                <li>Projects, tasks, team workload, budgets and payouts</li>
+                                <li>Knowledge base with sources and change history</li>
+                                <li>15+ integrations: GA4, Search Console, Ads, Stripe, GitHub</li>
                             </ul>
-                            <span>#php #mysql #api</span>
+                            <span>#sveltekit #fastify #postgresql #drizzle #mcp</span>
                         </div>
                     </div>
-
-                    <!-- Web Apps -->
-                    <div class="item wow fadeInUp" data-wow-delay="" data-type="webapps">
-                        <img src="img/getyourguide_alternative.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay="" data-project="matei-travel">
+                        <img src="img/matei-travel.webp" alt="MateiTravel website with the tour booking calendar" width="1410" height="810" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>GetYourGuide Alternative</strong>
+                            <div class="brand">
+                                <strong class="logo"><img src="img/logo-matei-travel.svg" alt="MateiTravel"></strong>
+                                <button data-modalq-opener="0" data-url="https://mateitravel.com/" aria-label="Preview mateitravel.com"><i class="fa-solid fa-eye"></i></button>
                             </div>
-                            <div class="tag">Web App for Travel platform</div>
+                            <div class="tag">Travel e-commerce + booking system</div>
                             <ul>
-                                <li>Large-scale project similar to GetYourGuide</li>
-                                <li>50+ dashboard pages</li>
-                                <li>200+ knowledge base pages</li>
+                                <li>Custom WordPress theme, tours without WooCommerce</li>
+                                <li>Own booking system: schedules and live seat availability</li>
+                                <li>Stripe Checkout, promo code engine, gift cards</li>
+                                <li>PDF e-tickets with QR check-in</li>
+                                <li>Two-way CRM integration over REST API: prices, schedules, seats</li>
+                                <li>Partner and referral portals with commissions</li>
+                                <li>Telegram booking alerts, SMS review requests</li>
+                                <li>SEO/GEO growth: traffic from Google and AI assistants</li>
+                            </ul>
+                            <span>#wordpress #php #stripe #restapi #polylang</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-project="umandry">
+                        <img src="img/umandry.webp" alt="Tour marketplace home page with tour postcards" width="1410" height="810" loading="lazy">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div class="brand">
+                                <strong class="logo logo-blurred"><img src="img/logo-umandry-blurred.webp" alt="Tour marketplace, name hidden until launch"></strong>
+                                <em class="status">In development</em>
+                            </div>
+                            <div class="tag">Tour marketplace · web + apps</div>
+                            <ul>
+                                <li>Marketplace for guided tours, an alternative to GetYourGuide</li>
+                                <li>Business requirements, design, 50+ dashboard pages</li>
                                 <li>Fuzzy search with lemmatization via Manticore</li>
-                                <li>Business requirements and design work</li>
-                                <li>Frontend: Svelte + SvelteKit</li>
-                                <li>Backend: Deno</li>
+                                <li>Stripe deposits, offline tickets, guide check-in</li>
+                                <li>Trip builder: mood and company answers become filters</li>
+                                <li>iOS/Android apps, widgets, Live Activity, Apple Watch, Wear OS</li>
+                                <li>Frontend: SvelteKit · Backend: Deno + PostgreSQL</li>
                             </ul>
-                            <span>#svelte #sveltekit #deno #manticore</span>
+                            <span>#sveltekit #deno #postgresql #manticore #capacitor</span>
                         </div>
                     </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="webapps">
-                        <img src="img/hurricane.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-project="otherwiser">
+                        <img src="img/otherwiser.webp" alt="Otherwiser hosting control panel" width="1410" height="810" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>Hurricane</strong>
+                            <div class="brand">
+                                <strong class="logo"><img src="img/logo-otherwiser.svg" alt="Otherwiser Hosting"></strong>
+                                <a class="external" href="https://host.otherwise.solutions/" target="_blank" rel="noopener" aria-label="Open host.otherwise.solutions"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                            <div class="tag">Automated hosting platform</div>
+                            <ul>
+                                <li>Hosting where every plan is built around a type of site</li>
+                                <li>Cloudflare set up automatically: DNS, SSL, DDoS, caching</li>
+                                <li>Daily backups with restore points in the panel</li>
+                                <li>Built-in Umami analytics and Manticore search</li>
+                                <li>Antivirus with auto-quarantine of malicious files</li>
+                                <li>GitHub push-to-deploy, VS Code in the browser, SFTP</li>
+                                <li>MCP: AI agents read logs, deploy and request restores</li>
+                            </ul>
+                            <span>#svelte #nodejs #postgresql #docker #cloudflare</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay="" data-project="alejmun">
+                        <img src="img/alejmun.webp" alt="AlejMUN conference website" width="940" height="540" loading="lazy">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div class="brand">
+                                <strong class="logo logo-mun"><img src="img/logo-alejmun.svg" alt=""><b>ALEJMUN</b></strong>
+                                <button data-modalq-opener="0" data-url="https://alejmun.cz/" aria-label="Preview alejmun.cz"><i class="fa-solid fa-eye"></i></button>
+                            </div>
+                            <div class="tag">Conference portal</div>
+                            <ul>
+                                <li>Delegate portal for an international Model UN in Prague</li>
+                                <li>Applications as a delegate, chair or school delegation</li>
+                                <li>Committee and country preferences, allocation by the Secretariat</li>
+                                <li>Stripe Checkout with early-bird pricing in CZK and EUR</li>
+                                <li>Position papers, chair feedback and roll call</li>
+                                <li>Automated emails at every stage of the application</li>
+                                <li>Own lightweight PHP MVC without runtime dependencies</li>
+                                <li>Plus a custom WordPress theme fed by the portal API</li>
+                            </ul>
+                            <span>#php #mysql #stripe #wordpress</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-project="hurricane">
+                        <img src="img/hurricane.jpg" alt="Hurricane store with the mobile app" width="940" height="569" loading="lazy">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div class="brand">
+                                <strong class="logo"><img src="img/logo-hurricane.svg" alt="Hurricane"></strong>
                             </div>
                             <div class="tag">Web App + eShop</div>
                             <ul>
@@ -303,68 +367,46 @@
                             <span>#svelte #capacitor #php #shadcn</span>
                         </div>
                     </div>
-
-                    <!-- WordPress Projects -->
-                    <div class="item wow fadeInUp" data-wow-delay="" data-type="wordpress">
-                        <img src="img/mateitravel.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-project="frontpoint">
+                        <img src="img/frontpoint.jpg" alt="FrontPoint admin panel" width="940" height="540" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>MateiTravel</strong>
-                                <button data-modalq-opener="0" data-url="https://mateitravel.com/"><i class="fa-solid fa-eye"></i></button>
+                            <div class="brand">
+                                <strong class="logo logo-frontpoint"><img src="img/logo-frontpoint.svg" alt="FrontPoint"></strong>
+                                <button data-modalq-opener="0" data-url="https://frontpoint.uk.com/" aria-label="Preview frontpoint.uk.com"><i class="fa-solid fa-eye"></i></button>
                             </div>
-                            <div class="tag">Travel ecommerce website</div>
+                            <div class="tag">Study Platform</div>
                             <ul>
-                                <li>Website for a travel company</li>
-                                <li>Categories and tours via custom post types (no WooCommerce)</li>
-                                <li>Tour scheduling and booking system</li>
-                                <li>Promo code system</li>
-                                <li>Stripe payment integration</li>
-                                <li>PDF ticket generation with QR verification</li>
-                                <li>Telegram bot for booking management</li>
-                                <li>VPS setup with self-hosted Umami analytics</li>
+                                <li>Learning management system for sailors</li>
+                                <li>Users with different roles</li>
+                                <li>Courses, lessons, testing</li>
+                                <li>Certificate generation and verification</li>
+                                <li>Custom admin panel</li>
                             </ul>
-                            <span>#wordpress #polylang #stripe #php</span>
-                        </div>
-                    </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="wordpress">
-                        <img src="img/welovekids.jpg" alt="">
-                        <div class="info">
-                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>WeLoveKids</strong>
-                                <button data-modalq-opener="0" data-url="https://welovekids.wonder-web.com.ua/"><i class="fa-solid fa-eye"></i></button>
-                            </div>
-                            <div class="tag">Landing</div>
-                            <ul>
-                                <li>Beautiful landing page for kindergarten</li>
-                                <li>Scroll and cursor-based animations</li>
-                                <li>HTML/CSS markup and WordPress integration</li>
-                            </ul>
-                            <span>#html #css #js #wordpress</span>
-                        </div>
-                    </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-type="wordpress">
-                        <img src="img/lofthookah.jpg" alt="">
-                        <div class="info">
-                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>Presentation website</strong>
-                                <button data-modalq-opener="0" data-url="https://loft-hookah.wonder-web.com.ua/"><i class="fa-solid fa-eye"></i></button>
-                            </div>
-                            <div class="tag">Ukraine</div>
-                            <ul>
-                                <li>Presentation website with multilingual support</li>
-                                <li>HTML/CSS markup and WordPress integration</li>
-                                <li>Flavor and delivery cost calculator</li>
-                            </ul>
-                            <span>#wordpress #acf #multilang</span>
+                            <span>#laravel #php #mysql</span>
                         </div>
                     </div>
 
-                    <!-- My Plugins -->
-                    <div class="item wow fadeInUp" data-wow-delay="" data-type="plugins">
-                        <img src="img/plugin-polylang.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay="" data-project="blogent-connector">
+                        <img src="img/plugin-blogent-connector.webp" alt="Blogent Connector settings in WordPress" width="1410" height="810" loading="lazy">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>Blogent Connector</strong>
+                                <a href="https://wordpress.org/plugins/smmix-ai-seo-blog/" target="_blank" rel="noopener" aria-label="Blogent Connector on WordPress.org"><i class="fa-solid fa-link"></i></a>
+                            </div>
+                            <div class="tag">WordPress Plugin</div>
+                            <ul>
+                                <li>Connects WordPress to Blogent for an autonomous SEO blog</li>
+                                <li>Compatible with WPML, Polylang, WP Multilang</li>
+                                <li>Compatible with YoastSEO, AllInOneSEO, RankMathSEO</li>
+                                <li>Updates posts in place, keeping URL, date and cover</li>
+                            </ul>
+                            <span>#wordpress #php #ai #seo</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-project="polylang-scanner">
+                        <img src="img/plugin-polylang.jpg" alt="Polylang string translations in WordPress" width="940" height="540" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
                             <div>
@@ -378,8 +420,8 @@
                             <span>#wordpress #php #polylang</span>
                         </div>
                     </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-type="plugins">
-                        <img src="img/plugin-deepl.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-project="deepl-translation">
+                        <img src="img/plugin-deepl.jpg" alt="DeepL translation settings in WordPress" width="940" height="540" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
                             <div>
@@ -393,29 +435,13 @@
                             <span>#wordpress #php #deepl #api</span>
                         </div>
                     </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-type="plugins">
-                        <img src="img/plugin-smmix.jpg" alt="">
-                        <div class="info">
-                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
-                            <div>
-                                <strong>SEO Blog by SMMIX.tools</strong>
-                            </div>
-                            <div class="tag">WordPress Plugin</div>
-                            <ul>
-                                <li>Integration with my AI system for autonomous SEO blog</li>
-                                <li>Compatible with WPML, Polylang, WP Multilang</li>
-                                <li>Compatible with YoastSEO, AllInOneSEO, RankMathSEO</li>
-                            </ul>
-                            <span>#wordpress #php #ai #seo</span>
-                        </div>
-                    </div>
-                    <div class="item wow fadeInUp" data-wow-delay=".3s" data-type="plugins">
-                        <img src="img/plugin-currency.jpg" alt="">
+                    <div class="item wow fadeInUp" data-wow-delay="" data-project="currency-update">
+                        <img src="img/plugin-currency.jpg" alt="SmartCurrency settings in OpenCart" width="940" height="540" loading="lazy">
                         <div class="info">
                             <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
                             <div>
                                 <strong>Automatic Currency Update</strong>
-                                <a href="https://opencartforum.com/en/files/file/8975-avtomaticheskoe-obnovlenie-kursa-valyut-opencartocstore-2x-3h" target="_blank" rel="nofollow noindex"><i class="fa-solid fa-link"></i></a>
+                                <a href="https://opencartforum.com/en/files/file/8975-avtomaticheskoe-obnovlenie-kursa-valyut-opencartocstore-2x-3h" target="_blank" rel="nofollow noindex" aria-label="Plugin on OpenCartForum"><i class="fa-solid fa-link"></i></a>
                             </div>
                             <div class="tag">Opencart Plugin</div>
                             <ul>
@@ -427,31 +453,160 @@
                             <span>#opencart #php #api</span>
                         </div>
                     </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".1s" data-project="ps-xml-import">
+                        <img src="img/plugin-ps-xml-import.webp" alt="RE XML Import feeds in the PrestaShop back office" width="1410" height="810" loading="lazy">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>RE XML Import</strong>
+                            </div>
+                            <div class="tag">PrestaShop Module</div>
+                            <ul>
+                                <li>Imports supplier XML feeds on a cron schedule</li>
+                                <li>Several feeds, each with its own SKU prefix and cron URL</li>
+                                <li>Maps feed categories, params and variants to the shop</li>
+                                <li>Images, stock and combinations, zeroes dropped products</li>
+                                <li>Streams large feeds with XMLReader, blocks SSRF</li>
+                            </ul>
+                            <span>#prestashop #php #xml #cron</span>
+                        </div>
+                    </div>
+                    <div class="item wow fadeInUp" data-wow-delay=".2s" data-project="ps-product-association">
+                        <img src="img/plugin-ps-product-association.webp" alt="Product association rules in the PrestaShop back office" width="1410" height="810" loading="lazy">
+                        <div class="info">
+                            <svg viewBox="0 0 405 20" width="405" height="20"><path d="" fill="#fcfcfc" stroke-linecap="round" stroke-linejoin="miter"/></svg>
+                            <div>
+                                <strong>Product Association Rules</strong>
+                            </div>
+                            <div class="tag">PrestaShop Module</div>
+                            <ul>
+                                <li>Adds products to categories or removes them by rules</li>
+                                <li>AND conditions on features and combination attributes</li>
+                                <li>Undoes only the assignments it made itself</li>
+                                <li>Cron URL with token, dry run and run log</li>
+                            </ul>
+                            <span>#prestashop #php #ajax #cron</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <section class="pwa">
+        <section class="craft" id="creative">
             <div class="waves-wrapper flex-container">
                 <svg viewBox="0 0 2560 150" width="2560" height="150" version="1.1"><path d="M0 144L13.8 124C27.7 104 55.3 64 82.8 56.2C110.3 48.3 137.7 72.7 165.2 81.8C192.7 91 220.3 85 247.8 93.2C275.3 101.3 302.7 123.7 330.2 120.2C357.7 116.7 385.3 87.3 412.8 85.2C440.3 83 467.7 108 495.2 116.3C522.7 124.7 550.3 116.3 578 114.5C605.7 112.7 633.3 117.3 660.8 101.7C688.3 86 715.7 50 743.2 45.8C770.7 41.7 798.3 69.3 825.8 72.3C853.3 75.3 880.7 53.7 908.2 45C935.7 36.3 963.3 40.7 991 49.3C1018.7 58 1046.3 71 1073.8 87.7C1101.3 104.3 1128.7 124.7 1156.2 113.7C1183.7 102.7 1211.3 60.3 1238.8 58.5C1266.3 56.7 1293.7 95.3 1321.2 110.7C1348.7 126 1376.3 118 1403.8 97.5C1431.3 77 1458.7 44 1486.2 38.7C1513.7 33.3 1541.3 55.7 1569 54.3C1596.7 53 1624.3 28 1651.8 38.7C1679.3 49.3 1706.7 95.7 1734.2 104.2C1761.7 112.7 1789.3 83.3 1816.8 61.3C1844.3 39.3 1871.7 24.7 1899.2 35C1926.7 45.3 1954.3 80.7 1982 87.5C2009.7 94.3 2037.3 72.7 2064.8 54C2092.3 35.3 2119.7 19.7 2147.2 12.2C2174.7 4.7 2202.3 5.3 2229.8 16.3C2257.3 27.3 2284.7 48.7 2312.2 48.7C2339.7 48.7 2367.3 27.3 2394.8 28C2422.3 28.7 2449.7 51.3 2477.2 70C2504.7 88.7 2532.3 103.3 2546.2 110.7L2560 118L2560 0L2546.2 0C2532.3 0 2504.7 0 2477.2 0C2449.7 0 2422.3 0 2394.8 0C2367.3 0 2339.7 0 2312.2 0C2284.7 0 2257.3 0 2229.8 0C2202.3 0 2174.7 0 2147.2 0C2119.7 0 2092.3 0 2064.8 0C2037.3 0 2009.7 0 1982 0C1954.3 0 1926.7 0 1899.2 0C1871.7 0 1844.3 0 1816.8 0C1789.3 0 1761.7 0 1734.2 0C1706.7 0 1679.3 0 1651.8 0C1624.3 0 1596.7 0 1569 0C1541.3 0 1513.7 0 1486.2 0C1458.7 0 1431.3 0 1403.8 0C1376.3 0 1348.7 0 1321.2 0C1293.7 0 1266.3 0 1238.8 0C1211.3 0 1183.7 0 1156.2 0C1128.7 0 1101.3 0 1073.8 0C1046.3 0 1018.7 0 991 0C963.3 0 935.7 0 908.2 0C880.7 0 853.3 0 825.8 0C798.3 0 770.7 0 743.2 0C715.7 0 688.3 0 660.8 0C633.3 0 605.7 0 578 0C550.3 0 522.7 0 495.2 0C467.7 0 440.3 0 412.8 0C385.3 0 357.7 0 330.2 0C302.7 0 275.3 0 247.8 0C220.3 0 192.7 0 165.2 0C137.7 0 110.3 0 82.8 0C55.3 0 27.7 0 13.8 0L0 0Z" fill="#14152a" stroke-linecap="round" stroke-linejoin="miter"/></svg>
             </div>
-            <div class="fixed-section">
+            <div class="craft-content">
                 <div class="holder">
-                    <div class="info">
-                        <img src="img/smmix.svg" alt="">
-                        <br>
-                        <h3>My own startup: SaaS platform for automated SEO content generation</h3>
-                        <div class="flex-container">
-                            <div>
-                                <p>Often noticing mistakes on websites caused by human error — missed meta tags, forgotten internal links in blogs <br> I thought: what if this entire process could be automated?</p>
-                                <p>That's how SMMIX AI was born — a system that creates SEO blogs following all best practices in a full autopilot, from content plan creation to publishing directly on the website.</p>
-                                <p>This isn't just article generation via GPT — it's a powerful tool deeply integrated with the client's website.</p>
-                                <p>The project has been battle-tested on dozens of commercial websites and is currently the most feature-rich solution today.</p>
-                                <br>
-                                <a href="https://smmix.tools/" target="_blank" class="btn">See SMMIX in action</a>
-                           </div>
-                            <img src="img/seo-blog-dashboard.webp" alt="">
-                        </div>
+                    <p class="eyebrow">Creative zone</p>
+                    <h2>Brands, micro-interactions and product films</h2>
+                    <p class="lead">Besides the code I draw logos, design the small moments of an interface and make product films.</p>
+
+                    <div class="craft-grid">
+                        <figure class="craft-card craft-logo wow fadeInUp">
+                            <div class="guidra-merge" aria-hidden="true">
+                                <svg class="merge-mark" viewBox="0 0 533 412"><defs><path id="g-l" d="M139.613 106.981C151.6 113.341 164.073 118.424 177.033 122.231C167 146.764 165.873 171.277 173.653 195.771C181.746 221.277 197.423 240.961 220.683 254.82C226.876 258.507 230.636 260.924 231.963 262.07C243.129 271.73 248.936 283.784 249.382 298.231C249.892 315.091 242.193 333.551 231.843 347.471C230.677 349.044 229.359 350.546 227.892 351.98C214.299 367.106 197.316 375.996 176.943 378.65C161.563 380.65 147.033 378.87 133.353 373.31C126.987 370.716 119.22 366.899 110.053 361.86C100.433 356.573 90.3933 354.32 79.9333 355.1C73.0533 355.62 66.9895 357.519 61.7429 360.799C55.8496 364.486 51.3361 368.999 48.2028 374.339C45.9928 378.099 44.1031 380.15 40.0231 379.97C31.8933 379.61 32.7034 369.26 34.2634 364.1C36.4434 356.853 39.8765 350.289 44.5632 344.409C51.9564 335.123 61.7396 328.916 73.9128 325.789C81.9528 323.723 89.8735 323.646 97.6735 325.56C105.4 327.453 110.92 329.169 114.233 330.709C127.923 337.089 136.993 341.839 150.893 343.249C154.6 343.623 158.057 343.556 161.263 343.049C172.527 341.247 182.069 336.226 189.891 327.987L190.643 327.18C196.103 320.907 199.297 313.937 200.223 306.271C200.437 304.497 200.099 301.657 199.213 297.75C197.502 290.191 190.363 286.411 182.973 289.111C182.755 289.19 182.549 289.301 182.363 289.441C170.056 298.601 156.896 303.55 142.882 304.29C134.973 304.71 125.623 304.07 117.653 301.401C105.72 297.401 95.4028 291.087 86.7028 282.46C85.3825 281.153 80.6888 276.434 72.6227 268.301C62.5428 258.141 46.9831 251.101 32.4831 253.731C25.63 254.971 19.57 257.254 14.3034 260.58C13.4834 261.1 12.2797 261.323 10.693 261.25C5.47318 261.03 3.30656 258.214 4.19305 252.801C4.49305 250.954 5.53936 248.827 7.33269 246.42C16.5327 234.07 32.4531 227.34 47.7331 227.54C64.113 227.76 81.3029 237.58 92.7829 249.62C96.0028 253.01 103.292 258.1 106.923 260.401C114.156 264.974 122.056 267.014 130.623 266.521C140.033 265.991 150.793 261.781 153.283 251.971C153.53 251.004 153.449 249.714 153.043 248.101C152.956 247.743 152.818 247.398 152.632 247.08C147.44 237.801 144.266 232.041 143.113 229.801C138.706 221.228 135.133 211.827 132.393 201.601C123.68 169.181 126.086 137.641 139.613 106.981ZM191.233 97.3195C185.446 105.079 180.713 113.383 177.033 122.23C164.073 118.423 151.6 113.34 139.613 106.98C143.1 99.0131 147.173 91.3627 151.833 84.0295L191.233 97.3195Z"/><path id="g-t" d="M226.704 22.759C258.45 10.9725 290.363 9.86237 322.443 19.4289C327.183 20.8489 331.29 22.4127 334.763 24.1193C340.403 26.8993 345.333 28.4592 350.433 31.7492C359.513 37.6092 367.304 42.6394 373.964 49.9494C378.573 55.0093 379.993 59.8793 378.674 66.4992C375.523 82.4091 356.333 89.2595 343.733 78.3996C338.393 73.7896 331.483 69.1394 326.763 66.4094C302.243 52.2594 272.083 50.149 245.383 58.759V58.7599C223.363 66.0933 205.313 78.9462 191.233 97.3195L151.834 84.0295C165.44 63.0096 182.94 46.173 204.334 33.5197C205.916 34.7832 207.52 36.0092 209.144 37.2023C207.52 36.0091 205.916 34.7823 204.334 33.5187C211.467 29.2322 218.924 25.6456 226.704 22.759Z"/><path id="g-r" d="M356.713 163.15C370.626 163.21 381.56 163.239 389.513 163.239C394.933 163.239 398.596 163.746 400.503 164.759C405.873 167.619 410.233 173.599 410.443 179.779C410.583 184.019 410.239 188.916 409.413 194.469C407.526 207.056 403.806 219.073 398.253 230.52C391.766 225.64 386.676 222.406 382.983 220.82C379.036 219.12 375.103 217.389 371.183 215.629C368.173 214.279 366.585 212.122 365.73 209.582V209.583C366.585 212.123 368.173 214.28 371.183 215.63C375.103 217.39 379.036 219.121 382.983 220.82C386.676 222.407 391.766 225.641 398.253 230.521C394.266 238.627 390.156 245.634 385.923 251.54C382.229 256.687 377.426 262.384 371.513 268.63C370.52 269.677 369.68 271.677 368.993 274.63C368.44 276.99 368.256 280.053 368.442 283.819L368.443 283.82C371.383 302.13 387.904 313.69 405.874 313.93C410.794 313.99 417.13 313.66 424.883 312.94C429.63 312.5 435.627 312.809 442.874 313.869C460.794 316.499 475.483 328.98 482.193 345.97C483.833 350.14 485.853 357.629 482.973 361.409C480.323 364.899 475.144 364.079 472.624 360.999C469.394 357.059 467.553 353.87 463.903 351.09C456.043 345.11 446.913 340.899 436.803 340.989C431.364 341.036 427.47 341.189 425.124 341.449C416.804 342.369 404.383 345.45 395.883 345.51C367.363 345.74 342.543 330.229 330.353 304.459C330.089 303.904 329.709 303.412 329.238 303.017C328.767 302.622 328.216 302.332 327.624 302.169C321.144 300.382 315.98 302.243 312.133 307.749C304.993 317.969 306.793 333.99 312.553 344.64C316.68 352.266 322.35 358.347 329.563 362.88C339.503 369.12 352.803 371.79 364.393 371.18C373.159 370.72 378.583 370.173 380.663 369.539C387.942 367.313 391.969 366.087 392.743 365.86C399.663 363.82 405.743 370.07 401.683 376.8C401.203 377.593 399.649 378.876 397.023 380.65C385.383 388.516 373.003 393.957 359.883 396.97C350.423 399.14 341.393 398.99 331.823 398.07C327.13 397.623 322.769 396.793 318.743 395.579C299.917 389.933 285.187 379.3 274.553 363.68C267.447 353.233 262.966 341.676 261.113 329.01C256.843 299.8 266.104 275.26 294.714 264.01C295.035 263.883 299.931 262.146 309.403 258.8C312.883 257.573 318.233 254.813 325.453 250.52L319.504 256.65C319.34 256.819 319.212 257.021 319.13 257.241C319.122 257.262 319.117 257.285 319.11 257.306C319.117 257.285 319.122 257.263 319.13 257.242C319.212 257.022 319.339 256.82 319.503 256.651L325.453 250.521C333.913 245.181 340.993 238.61 347.863 231.34C350.436 228.614 352.48 225.951 353.993 223.351C359.203 214.411 362.603 209.4 364.673 201.24C364.748 203.94 364.861 206.677 365.579 209.102L365.443 208.612C364.846 206.312 364.744 203.759 364.674 201.239C364.847 200.586 364.886 199.936 364.793 199.289C364.768 199.133 364.687 198.99 364.564 198.889C364.441 198.788 364.283 198.735 364.123 198.739C354.483 199.199 343.703 199.55 338.583 189.64C334.463 181.68 335.57 174.519 341.903 168.159C346.223 163.829 350.133 163.12 356.713 163.15Z"/><path id="g-a" d="M307.933 135.189C309.62 134.655 310.816 134.456 311.523 134.589C314.803 135.179 315.244 138.599 313.914 141.249C310.824 147.389 307.763 153.542 304.733 159.708L301.714 165.879C294.88 179.339 288.113 192.829 281.413 206.349C280.243 208.709 278.873 210.779 276.073 209.829C275.4 209.602 274.809 209.228 274.368 208.75C273.927 208.272 273.654 207.709 273.583 207.129C272.853 201.249 271.223 195.429 270.813 189.98C270.64 187.7 269.873 183.072 268.513 176.099C268.486 175.959 268.422 175.829 268.327 175.722C268.232 175.615 268.11 175.535 267.973 175.489C259.207 172.556 249.817 169.339 239.803 165.839C235.853 164.469 236.833 159.01 240.133 157.73C248.813 154.37 260.463 150.443 275.083 145.949L275.084 145.948C285.99 142.208 296.94 138.622 307.933 135.189Z"/></defs><g class="mm-trail"></g><use href="#g-l" class="mm-l"/><use href="#g-t" class="mm-t"/><use href="#g-r" class="mm-r"/><circle class="mm-ring" cx="275" cy="172" r="62"/><use href="#g-a" class="mm-arrow"/></svg>
+                                <p class="merge-word"><span class="mw-gui">Gui</span><span class="mw-de">de</span><span class="mw-plus">+</span><span class="mw-hy">Hy</span><span class="mw-dra">dra</span></p>
+                            </div>
+                            <figcaption>
+                                <strong>Guide + Hydra = Guidra</strong>
+                                <span>The logo I drew for Guidra. A hydra has many heads and one body, like a tour business selling on many channels. The mark gathers them into one, and the brand font is built from its lettering.</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="craft-card craft-cat wow fadeInUp" data-wow-delay=".1s">
+                            <div class="phone-stage">
+                                <div class="phone">
+                                    <video class="loop-video" muted loop playsinline preload="none" poster="img/creative-cat-refresh.webp" width="560" height="814" aria-label="Pull-to-refresh in the app: cat paws reach for a ball, and after a few refreshes the cat's head peeks out">
+                                        <source src="img/creative-cat-refresh.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            <figcaption>
+                                <strong>A cat behind pull-to-refresh</strong>
+                                <span>In the tour marketplace app, pulling to refresh wakes a cat: a paw creeps out, pats the ball and catches it. Six cats, six balls, sometimes two paws, and after a few refreshes in a row the head peeks out. It fits around the Dynamic Island and camera cut-outs. Recorded on the iPhone Duo simulator.</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="craft-card craft-film wow fadeInUp" data-wow-delay=".1s">
+                            <video class="film" controls preload="none" playsinline poster="img/creative-seshat-hero.webp" width="1920" height="1080" aria-label="Video: how SESHAT runs a project">
+                                <source src="img/creative-seshat-hero.webm" type="video/webm">
+                                <source src="img/creative-seshat-hero.mp4" type="video/mp4">
+                            </video>
+                            <figcaption>
+                                <strong>The main film of SESHAT AI</strong>
+                                <span>The film from the SESHAT landing, rendered from code: Playwright records the product's demo stage frame by frame at 60 fps, ffmpeg encodes it and lays the soundtrack under the picture. The same script renders it in three languages.</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                </div>
+            </div>
+            <div class="articles" id="articles">
+                <div class="holder">
+                    <p class="eyebrow">Research notes</p>
+                    <h2>Comfort is made of details most developers skip</h2>
+                    <p class="lead">Most teams leave these places at platform defaults: one-time codes and emails, the lock screen, watches and second displays, keyboard and contrast. I research what the platforms really allow and how to ship it.</p>
+                    <div class="article-grid">
+                        <a class="article-card featured wow fadeInUp" href="https://otherwise.solutions/blog/ux-beyond-app" target="_blank" rel="noopener">
+                            <img src="img/article-ux-beyond-app.webp" alt="" width="720" height="405" loading="lazy">
+                            <span class="article-body">
+                                <small>Atlas · 35 min read</small>
+                                <strong>UX beyond the app: islands, widgets, watches, and system interfaces</strong>
+                                <span>A practical atlas of UX outside the app: Live Activities, Android Live Updates, OEM islands, widgets, watches, Wallet, PWAs, architecture, and compatibility checks.</span>
+                            </span>
+                        </a>
+                        <a class="article-card wow fadeInUp" data-wow-delay=".1s" href="https://otherwise.solutions/blog/otp-autofill-gmail-sms" target="_blank" rel="noopener">
+                            <img src="img/article-otp-autofill-gmail-sms.webp" alt="" width="720" height="405" loading="lazy">
+                            <span class="article-body">
+                                <small>28 min read</small>
+                                <strong>Building useful emails: OTP autofill, Gmail cards, attachments and event.ics</strong>
+                                <span>Code and booking emails: MIME, PDF tickets, Gmail JSON-LD, Promotions, calendar files and SMS autofill.</span>
+                            </span>
+                        </a>
+                        <a class="article-card wow fadeInUp" href="https://otherwise.solutions/blog/apple-live-activities-dynamic-island" target="_blank" rel="noopener">
+                            <img src="img/article-apple-live-activities-dynamic-island.webp" alt="" width="720" height="405" loading="lazy">
+                            <span class="article-body">
+                                <small>13 min read</small>
+                                <strong>Dynamic Island and Live Activities: a practical guide for Apple</strong>
+                                <span>ActivityKit, WidgetKit, App Intents and APNs: designing, updating and ending Live Activities.</span>
+                            </span>
+                        </a>
+                        <a class="article-card wow fadeInUp" data-wow-delay=".1s" href="https://otherwise.solutions/blog/android-live-updates-oem" target="_blank" rel="noopener">
+                            <img src="img/article-android-live-updates-oem.webp" alt="" width="720" height="405" loading="lazy">
+                            <span class="article-body">
+                                <small>19 min read</small>
+                                <strong>Android Live Updates and manufacturer islands: a practical guide</strong>
+                                <span>ProgressStyle, MetricStyle, Now Bar, HyperIsland and other OEM integrations with a test matrix.</span>
+                            </span>
+                        </a>
+                        <a class="article-card wow fadeInUp" data-wow-delay=".2s" href="https://otherwise.solutions/blog/rear-secondary-displays" target="_blank" rel="noopener">
+                            <img src="img/article-rear-secondary-displays.webp" alt="" width="720" height="405" loading="lazy">
+                            <span class="article-body">
+                                <small>13 min read</small>
+                                <strong>Rear and secondary smartphone displays: APIs, scenarios, and limits</strong>
+                                <span>Xiaomi rear displays, Nothing Glyph Matrix, ASUS and others: verified access paths and PWA limits.</span>
+                            </span>
+                        </a>
+                        <a class="article-card wow fadeInUp" href="https://otherwise.solutions/blog/accessible-html-keyboard" target="_blank" rel="noopener">
+                            <img src="img/article-accessible-html-keyboard.webp" alt="" width="720" height="405" loading="lazy">
+                            <span class="article-body">
+                                <small>5 min read</small>
+                                <strong>Accessible HTML: semantics, keyboard navigation, and visible focus</strong>
+                                <span>Links or buttons, ARIA, preserving focus and testing magnification without common mistakes.</span>
+                            </span>
+                        </a>
+                        <a class="article-card wow fadeInUp" data-wow-delay=".1s" href="https://otherwise.solutions/blog/wcag-apca-contrast" target="_blank" rel="noopener">
+                            <img src="img/article-wcag-apca-contrast.webp" alt="" width="720" height="405" loading="lazy">
+                            <span class="article-body">
+                                <small>6 min read</small>
+                                <strong>WCAG and APCA: why contrast assessments differ</strong>
+                                <span>WCAG 2.2 against APCA, the status of WCAG 3 and practical contrast decisions.</span>
+                            </span>
+                        </a>
+                        <a class="article-more wow fadeInUp" data-wow-delay=".2s" href="https://otherwise.solutions/blog/authors/vladyslav-prokop" target="_blank" rel="noopener">
+                            <strong>All articles</strong>
+                            <span>on the Otherwise Solutions blog</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -460,7 +615,7 @@
             </div>
         </section>
 
-        <section class="creative" id="creative">
+        <section class="creative">
                 <div class="parallax-wrapper">
                     <div class="fixed-img">
                         <div class="bg"></div>
@@ -514,6 +669,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="js/type.js"></script>
 	<script src="js/TypeIt.js"></script>
-    <script src="js/main.js?v1"></script>
+    <script src="js/main.js?v6"></script>
 </body>
 </html>
